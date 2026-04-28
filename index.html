@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Modo Emergencia Gorillas</title>
+    <title>Gorillas DOS</title>
     <script src="https://js-dos.com/v7/build/releases/latest/js-dos.js"></script>
     <link href="https://js-dos.com/v7/build/releases/latest/js-dos.css" rel="stylesheet">
     <style>
@@ -13,18 +13,8 @@
     <div id="jsdos"></div>
     <script>
         window.onload = function() {
-            if (typeof Dos !== "undefined") {
-                // Iniciamos el emulador
-                Dos(document.getElementById("jsdos"), {
-                    style: "hidden"
-                }).run("gorillas.jsdos").then((runtime) => {
-                    // ESTO ES LO IMPORTANTE: Fuerza a abrir la consola de comandos
-                    console.log("Forzando terminal...");
-                    runtime.main(["-c", "dir"]); 
-                }).catch((err) => {
-                    alert("El archivo gorillas.jsdos no se encuentra o está dañado.");
-                });
-            }
+            // Usamos una configuración estándar para GitHub Pages
+            Dos(document.getElementById("jsdos")).run("gorillas.zip");
         };
     </script>
 </body>
