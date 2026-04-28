@@ -2,29 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gorillas DOS</title>
+    <title>Gorillas</title>
     <link href="https://js-dos.com/v7/build/releases/latest/js-dos.css" rel="stylesheet">
     <script src="https://js-dos.com/v7/build/releases/latest/js-dos.js"></script>
     <style>
-        html, body, #jsdos { 
-            width: 100%; 
-            height: 100%; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #000; 
-            overflow: hidden; 
-        }
+        html, body, #jsdos { width: 100%; height: 100%; margin: 0; padding: 0; background-color: #000; }
     </style>
 </head>
 <body>
     <div id="jsdos"></div>
     <script>
-        // Función de arranque
         window.onload = function() {
             if (typeof Dos !== "undefined") {
                 Dos(document.getElementById("jsdos")).run("gorillas.jsdos");
-            } else {
-                alert("Error: No se pudo cargar la librería de emulación.");
             }
         };
     </script>
