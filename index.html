@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Gorillas Retro</title>
-    <script src="https://js-dos.com/v7/build/releases/latest/js-dos.js"></script>
+    <meta charset="UTF-8">
+    <title>Gorillas DOS</title>
     <link href="https://js-dos.com/v7/build/releases/latest/js-dos.css" rel="stylesheet">
+    <script src="https://js-dos.com/v7/build/releases/latest/js-dos.js"></script>
+    
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: black; }
-        #jsdos { width: 100%; height: 100%; }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
+        #jsdos { width: 100vw; height: 100vh; }
     </style>
 </head>
 <body>
+
     <div id="jsdos"></div>
+
     <script>
-        // Cambia "tu-archivo.jsdos" por el nombre de tu bundle
-        Dos(document.getElementById("jsdos")).run("gorillas.jsdos");
+        // Este script se ejecuta cuando la página está totalmente cargada
+        window.onload = function() {
+            // Verificamos que Dos esté definido para evitar el error anterior
+            if (typeof Dos !== "undefined") {
+                Dos(document.getElementById("jsdos"), {
+                    style: "hidden"
+                }).run("GORILLAS.jsdos"); 
+                // IMPORTANTE: Si tu archivo se llama diferente (ej: GORILLAS.zip), cámbialo arriba.
+            } else {
+                console.error("No se pudo cargar la librería js-dos. Revisa tu conexión.");
+            }
+        };
     </script>
+
 </body>
 </html>
