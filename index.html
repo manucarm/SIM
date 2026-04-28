@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gorillas DOS</title>
+    <title>Modo Emergencia Gorillas</title>
     <script src="https://js-dos.com/v7/build/releases/latest/js-dos.js"></script>
     <link href="https://js-dos.com/v7/build/releases/latest/js-dos.css" rel="stylesheet">
     <style>
@@ -13,19 +13,18 @@
     <div id="jsdos"></div>
     <script>
         window.onload = function() {
-            // Configuramos el emulador con opciones de compatibilidad
-            const ci = Dos(document.getElementById("jsdos"), {
-                style: "hidden", // Oculta botones extra para que se vea limpio
-                noSideBar: true,
-                noCenter: false
-            });
-
-            // Lanzamos el juego
-            ci.run("gorillas.jsdos").then((runtime) => {
-                console.log("¡Juego cargado con éxito!");
-            }).catch((err) => {
-                console.error("Error al arrancar el juego:", err);
-            });
+            if (typeof Dos !== "undefined") {
+                // Iniciamos el emulador
+                Dos(document.getElementById("jsdos"), {
+                    style: "hidden"
+                }).run("gorillas.jsdos").then((runtime) => {
+                    // ESTO ES LO IMPORTANTE: Fuerza a abrir la consola de comandos
+                    console.log("Forzando terminal...");
+                    runtime.main(["-c", "dir"]); 
+                }).catch((err) => {
+                    alert("El archivo gorillas.jsdos no se encuentra o está dañado.");
+                });
+            }
         };
     </script>
 </body>
