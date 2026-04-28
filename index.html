@@ -5,30 +5,28 @@
     <title>Gorillas DOS</title>
     <link href="https://js-dos.com/v7/build/releases/latest/js-dos.css" rel="stylesheet">
     <script src="https://js-dos.com/v7/build/releases/latest/js-dos.js"></script>
-    
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
-        #jsdos { width: 100vw; height: 100vh; }
+        html, body, #jsdos { 
+            width: 100%; 
+            height: 100%; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #000; 
+            overflow: hidden; 
+        }
     </style>
 </head>
 <body>
-
     <div id="jsdos"></div>
-
     <script>
-        // Este script se ejecuta cuando la página está totalmente cargada
+        // Función de arranque
         window.onload = function() {
-            // Verificamos que Dos esté definido para evitar el error anterior
             if (typeof Dos !== "undefined") {
-                Dos(document.getElementById("jsdos"), {
-                    style: "hidden"
-                }).run("GORILLAS.jsdos"); 
-                // IMPORTANTE: Si tu archivo se llama diferente (ej: GORILLAS.zip), cámbialo arriba.
+                Dos(document.getElementById("jsdos")).run("GORILLAS.jsdos");
             } else {
-                console.error("No se pudo cargar la librería js-dos. Revisa tu conexión.");
+                alert("Error: No se pudo cargar la librería de emulación.");
             }
         };
     </script>
-
 </body>
 </html>
